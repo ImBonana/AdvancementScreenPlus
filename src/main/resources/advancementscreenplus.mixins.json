@@ -1,0 +1,25 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "me.imbanana.advancementscreenplus.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "ServerAdvancementLoaderMixin"
+    ],
+    "client": [
+        "AdvancementsScreenMixin",
+        "AdvancementTabMixin",
+        "AdvancementWidgetMixin",
+        "accessor.AdvancementsScreenAccessor",
+        "accessor.AdvancementWidgetAccessor"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "overwrites": {
+        "requireAnnotations": true
+    },
+    "mixinextras": {
+        "minVersion": "0.5.0"
+    }
+}

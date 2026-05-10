@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "advancementscreenplus",
+    "version": "${version}",
+    "name": "AdvancementScreenPlus",
+    "description": "Better Advancement screen",
+    "authors": [
+        {
+            "name": "ImBanana"
+        }
+    ],
+    "contact": {},
+    "license": "MIT",
+    "icon": "assets/advancementscreenplus/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "client": [
+            "me.imbanana.advancementscreenplus.AdvancementScreenPlusClient"
+        ],
+        "main": [
+            "me.imbanana.advancementscreenplus.AdvancementScreenPlus"
+        ]
+    },
+    "mixins": [
+        "advancementscreenplus.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}"
+    }
+}
