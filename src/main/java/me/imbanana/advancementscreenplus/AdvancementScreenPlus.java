@@ -3,7 +3,6 @@ package me.imbanana.advancementscreenplus;
 import me.imbanana.advancementscreenplus.positioner.FruchtermanReingoldAdvancementPositioner;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.AdvancementPositioner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

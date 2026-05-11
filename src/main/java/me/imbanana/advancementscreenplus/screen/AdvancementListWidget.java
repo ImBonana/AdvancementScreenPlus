@@ -1,22 +1,15 @@
 package me.imbanana.advancementscreenplus.screen;
 
 import com.google.common.collect.ImmutableList;
-import me.imbanana.advancementscreenplus.AdvancementScreenPlus;
 import me.imbanana.advancementscreenplus.mixin.accessor.AdvancementsScreenAccessor;
-import net.minecraft.advancement.Advancement;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;
 import net.minecraft.client.gui.screen.advancement.AdvancementTab;
 import net.minecraft.client.gui.screen.advancement.AdvancementsScreen;
-import net.minecraft.client.gui.screen.option.ControlsListWidget;
 import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ElementListWidget;
-import net.minecraft.client.gui.widget.IconButtonWidget;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 
 import java.util.List;
 
