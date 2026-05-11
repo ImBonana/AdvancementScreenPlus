@@ -1,6 +1,7 @@
 package me.imbanana.advancementscreenplus.mixin.comp;
 
 import betteradvancements.common.gui.BetterAdvancementWidget;
+import me.imbanana.advancementscreenplus.config.ModConfig;
 import me.imbanana.advancementscreenplus.mixin.accessor.BetterAdvancementWidgetAccessor;
 import me.imbanana.advancementscreenplus.util.RenderUtils;
 import net.minecraft.advancement.AdvancementProgress;
@@ -24,6 +25,8 @@ public abstract class BetterAdvancementWidgetMixin {
 
     @Inject(method = "drawConnection", at = @At(value = "HEAD"), cancellable = true)
     private void replaceRenderLines(DrawContext guiGraphics, BetterAdvancementWidget parent, int scrollX, int scrollY, boolean drawInside, CallbackInfo ci) {
+        if (ModConfig.HANDLER.instance().shouldUseVnillaLines()) return;
+
         ci.cancel();
 
         RenderUtils.renderConnectionLine(

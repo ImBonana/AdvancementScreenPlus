@@ -19,6 +19,9 @@
         ],
         "main": [
             "me.imbanana.advancementscreenplus.AdvancementScreenPlus"
+        ],
+        "modmenu": [
+            "me.imbanana.advancementscreenplus.config.ModConfigScreenProvider"
         ]
     },
     "mixins": [
@@ -27,6 +30,12 @@
     "depends": {
         "fabricloader": ">=${loader_version}",
         "fabric-api": "*",
+        "yet_another_config_lib_v3": ">=${yacl_version}",
         "minecraft": "${minecraft_version}"
+    },
+    "custom": {
+        "modmenu": {
+
+        }
     }
 }

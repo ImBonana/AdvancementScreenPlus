@@ -1,5 +1,6 @@
 package me.imbanana.advancementscreenplus.mixin;
 
+import me.imbanana.advancementscreenplus.config.ModConfig;
 import me.imbanana.advancementscreenplus.mixin.accessor.AdvancementWidgetAccessor;
 import me.imbanana.advancementscreenplus.util.RenderUtils;
 import net.minecraft.advancement.AdvancementProgress;
@@ -37,6 +38,8 @@ public abstract class AdvancementWidgetMixin {
 
     @Inject(method = "renderLines", at = @At("HEAD"), cancellable = true)
     private void replaceRenderLines(DrawContext context, int x, int y, boolean border, CallbackInfo ci) {
+        if (ModConfig.HANDLER.instance().shouldUseVnillaLines()) return;
+
         ci.cancel();
 
         if (parent != null) {
