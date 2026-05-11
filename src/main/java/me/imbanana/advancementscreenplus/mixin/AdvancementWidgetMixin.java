@@ -38,7 +38,7 @@ public abstract class AdvancementWidgetMixin {
 
     @Inject(method = "renderLines", at = @At("HEAD"), cancellable = true)
     private void replaceRenderLines(DrawContext context, int x, int y, boolean border, CallbackInfo ci) {
-        if (ModConfig.HANDLER.instance().shouldUseVnillaLines()) return;
+        if (ModConfig.HANDLER.instance().shouldUseVanillaLines()) return;
 
         ci.cancel();
 

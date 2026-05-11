@@ -32,16 +32,57 @@ public class ModConfig {
     @SerialEntry
     private LayoutAlgorithm layoutAlgorithm = LayoutAlgorithm.FRUCHTERMAN_REINGOLD;
 
+    private int fruchtermanReingoldIterations = 150;
+    private int fruchtermanReingoldRepulsion = 3;
+    private float fruchtermanReingoldCenterSpacing = 2;
+    private float fruchtermanReingoldSpacing = 1;
+
     public void setDrawArrows(boolean drawArrows) {
         this.drawArrows = drawArrows;
     }
 
     public boolean shouldDrawArrows() {
-        return drawArrows;
+        return this.drawArrows;
     }
 
-    public boolean shouldUseVnillaLines() {
+    public boolean shouldUseVanillaLines() {
         return this.useVanillaLines;
+    }
+
+    public void setUseVanillaLines(boolean useVanillaLines) {
+        this.useVanillaLines = useVanillaLines;
+    }
+
+    public int getFruchtermanReingoldIterations() {
+        return this.fruchtermanReingoldIterations;
+    }
+
+    public void setFruchtermanReingoldIterations(int fruchtermanReingoldIterations) {
+        this.fruchtermanReingoldIterations = fruchtermanReingoldIterations;
+    }
+
+    public int getFruchtermanReingoldRepulsion() {
+        return this.fruchtermanReingoldRepulsion;
+    }
+
+    public void setFruchtermanReingoldRepulsion(int fruchtermanReingoldRepulsion) {
+        this.fruchtermanReingoldRepulsion = fruchtermanReingoldRepulsion;
+    }
+
+    public float getFruchtermanReingoldCenterSpacing() {
+        return this.fruchtermanReingoldCenterSpacing;
+    }
+
+    public void setFruchtermanReingoldCenterSpacing(float fruchtermanReingoldCenterSpacing) {
+        this.fruchtermanReingoldCenterSpacing = fruchtermanReingoldCenterSpacing;
+    }
+
+    public float getFruchtermanReingoldSpacing() {
+        return this.fruchtermanReingoldSpacing;
+    }
+
+    public void setFruchtermanReingoldSpacing(float fruchtermanReingoldSpacing) {
+        this.fruchtermanReingoldSpacing = fruchtermanReingoldSpacing;
     }
 
     public void setLayoutAlgorithm(LayoutAlgorithm layoutAlgorithm) {
@@ -49,11 +90,7 @@ public class ModConfig {
     }
 
     public LayoutAlgorithm getLayoutAlgorithm() {
-        return layoutAlgorithm;
-    }
-
-    public void setUseVanillaLines(boolean useVanillaLines) {
-        this.useVanillaLines = useVanillaLines;
+        return this.layoutAlgorithm;
     }
 
     public enum LayoutAlgorithm {

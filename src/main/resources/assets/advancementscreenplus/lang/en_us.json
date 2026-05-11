@@ -5,7 +5,15 @@
     "config.advancementscreenplus.draw_arrows": "Draw Arrows",
     "config.advancementscreenplus.draw_arrows.desc": "Should draw arrows that point to the next advancement?",
     "config.advancementscreenplus.layout_algorithm": "Layout Algorithm",
-    "config.advancementscreenplus.layout_algorithm.desc": "Which layout algorithm to use? **USE '/reload' TO UPDATE THE LAYOUT!!!",
+    "config.advancementscreenplus.layout_algorithm.desc": "Which layout algorithm to use? **USE '/reload' TO UPDATE THE LAYOUT!!!**",
     "config.advancementscreenplus.layout_algorithm.option.fruchterman_reingold": "Fruchterman Reingold",
-    "config.advancementscreenplus.layout_algorithm.option.vanilla": "Vanilla"
+    "config.advancementscreenplus.layout_algorithm.option.vanilla": "Vanilla",
+
+    "config.advancementscreenplus.layout": "Layout Parameters",
+    "config.advancementscreenplus.layout.fruchterman_reingold": "Fruchterman Reingold",
+    "config.advancementscreenplus.layout.fruchterman_reingold.desc": "**USE '/reload' TO UPDATE THE LAYOUT!!!**",
+    "config.advancementscreenplus.layout.fruchterman_reingold.iterations": "Iterations",
+    "config.advancementscreenplus.layout.fruchterman_reingold.repulsion": "Repulsion",
+    "config.advancementscreenplus.layout.fruchterman_reingold.center_spacing": "Center Spacing",
+    "config.advancementscreenplus.layout.fruchterman_reingold.spacing": "spacing"
 }

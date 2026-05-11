@@ -1,5 +1,6 @@
 package me.imbanana.advancementscreenplus.positioner;
 
+import me.imbanana.advancementscreenplus.config.ModConfig;
 import net.minecraft.advancement.Advancement;
 
 import java.util.*;
@@ -23,7 +24,7 @@ public class FruchtermanReingoldAdvancementPositioner {
         }
     }
 
-    public void calc(int iterations, int repulsion, int centerSpacing, double spacing) {
+    public void calc(int iterations, int repulsion, float centerSpacing, double spacing) {
         if (this.allAdvancements.isEmpty()) return;
 
         int advancementCount = this.allAdvancements.size();
@@ -167,7 +168,9 @@ public class FruchtermanReingoldAdvancementPositioner {
         } else {
             FruchtermanReingoldAdvancementPositioner positioner = new FruchtermanReingoldAdvancementPositioner(root);
 
-            positioner.calc(150, 3, 2, 1);
+            ModConfig config = ModConfig.HANDLER.instance();
+
+            positioner.calc(config.getFruchtermanReingoldIterations(), config.getFruchtermanReingoldRepulsion(), config.getFruchtermanReingoldCenterSpacing(), config.getFruchtermanReingoldSpacing());
             positioner.alignWithGrid(1);
         }
     }
