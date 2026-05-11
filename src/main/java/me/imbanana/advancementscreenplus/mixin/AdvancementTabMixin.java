@@ -38,7 +38,7 @@ public abstract class AdvancementTabMixin {
                     opcode = Opcodes.PUTFIELD
             )
     )
-    private void replaceOriginPosX(AdvancementTab instance, double value, @Local(name = "x", argsOnly = true) int x) {
+    private void replaceOriginPosX(AdvancementTab instance, double value, @Local(argsOnly = true, ordinal = 0) int x) {
         this.originX = (this.screen.width - x) / 2f;
     }
 
@@ -50,7 +50,7 @@ public abstract class AdvancementTabMixin {
                     opcode = Opcodes.PUTFIELD
             )
     )
-    private void replaceOriginPosY(AdvancementTab instance, double value, @Local(name = "y", argsOnly = true) int y) {
+    private void replaceOriginPosY(AdvancementTab instance, double value, @Local(argsOnly = true, ordinal = 1) int y) {
         this.originY = (this.screen.height - y) / 2f;
     }
 
@@ -67,22 +67,22 @@ public abstract class AdvancementTabMixin {
     }
 
     @ModifyConstant(method = "render", constant = @Constant(intValue = 15))
-    private int changeBackgroundRepeatCountWidth(int constant, @Local(name = "x", argsOnly = true) int x) {
+    private int changeBackgroundRepeatCountWidth(int constant, @Local(argsOnly = true, ordinal = 0)int x) {
         return (screen.width - x) / 16 + 1;
     }
 
     @ModifyConstant(method = "render", constant = @Constant(intValue = 8))
-    private int changeBackgroundRepeatCountHeight(int constant, @Local(name = "y", argsOnly = true) int y) {
+    private int changeBackgroundRepeatCountHeight(int constant, @Local(argsOnly = true, ordinal = 1) int y) {
         return (screen.height - y) / 16 + 1;
     }
 
     @ModifyConstant(method = "drawWidgetTooltip", constant = @Constant(intValue = 234))
-    private int changeWidth(int constant, @Local(name = "x", argsOnly = true) int x) {
+    private int changeWidth(int constant, @Local(argsOnly = true, ordinal = 2) int x) {
         return screen.width - x;
     }
 
     @ModifyConstant(method = "drawWidgetTooltip", constant = @Constant(intValue = 113))
-    private int changeHeight(int constant, @Local(name = "y", argsOnly = true) int y) {
+    private int changeHeight(int constant, @Local(argsOnly = true, ordinal = 3) int y) {
         return screen.height - y;
     }
 }

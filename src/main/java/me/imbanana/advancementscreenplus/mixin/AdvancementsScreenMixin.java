@@ -43,8 +43,11 @@ public abstract class AdvancementsScreenMixin extends Screen implements ClientAd
     @Shadow
     @Final
     private Map<Advancement, AdvancementTab> tabs;
+
     @Unique
     private AdvancementListWidget tabButtons;
+    @Unique
+    private int tabsWidth = 200;
 
     protected AdvancementsScreenMixin(Text title) {
         super(title);
@@ -52,7 +55,9 @@ public abstract class AdvancementsScreenMixin extends Screen implements ClientAd
 
     @Inject(method = "init", at = @At("TAIL"))
     private void injectInit(CallbackInfo ci) {
-        this.tabButtons = new AdvancementListWidget((AdvancementsScreen) (Object) this, client, 200, this.height);
+        this.tabsWidth = this.width / 4;
+
+        this.tabButtons = new AdvancementListWidget((AdvancementsScreen) (Object) this, client, this.tabsWidth, this.height);
 
         for (AdvancementTab tab : this.tabs.values()) {
             this.tabButtons.addTab(tab);
@@ -127,14 +132,17 @@ public abstract class AdvancementsScreenMixin extends Screen implements ClientAd
     public void replaceRender(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         ci.cancel();
 
-        int tabWidth = 200;
-
         this.renderBackgroundTexture(context);
-        this.asp$renderAdvancementTree(context, tabWidth, 0);
-        this.asp$renderTabs(context, mouseX, mouseY, 0, 0, delta, tabWidth);
-        this.asp$renderWidgetToolTip(context, mouseX, mouseY, tabWidth, 0);
+        this.asp$renderAdvancementTree(context, this.tabsWidth, 0);
+        this.asp$renderTabs(context, mouseX, mouseY, 0, 0, delta, this.tabsWidth);
+        this.asp$renderWidgetToolTip(context, mouseX, mouseY, this.tabsWidth, 0);
 
+        context.getMatrices().push();
+        context.getMatrices().translate(0, 0, 500.0F);
+        RenderSystem.enableDepthTest();
         super.render(context, mouseX, mouseY, delta);
+        RenderSystem.disableDepthTest();
+        context.getMatrices().pop();
     }
 
     @Unique

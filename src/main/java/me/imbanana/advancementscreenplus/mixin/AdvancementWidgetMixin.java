@@ -1,6 +1,7 @@
 package me.imbanana.advancementscreenplus.mixin;
 
 import me.imbanana.advancementscreenplus.mixin.accessor.AdvancementWidgetAccessor;
+import me.imbanana.advancementscreenplus.util.RenderUtils;
 import net.minecraft.advancement.AdvancementProgress;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.advancement.AdvancementWidget;
@@ -39,29 +40,17 @@ public abstract class AdvancementWidgetMixin {
         ci.cancel();
 
         if (parent != null) {
-            int parentX = x + this.parent.getX() + 15;
-            int parentY = y + this.parent.getY() + 13;
-            int thizX = x + this.x + 15;
-            int thizY = y + this.y + 13;
-
-            AdvancementProgress parentProgress = ((AdvancementWidgetAccessor) this.parent).getProgress();
-
-            int color = parentProgress == null || !parentProgress.isDone() ? 0xFF999999 : this.progress != null && this.progress.isDone() ? 0xFF00BB00 : 0xFFFFFFFF;
-
-            int xDist = Math.abs(thizX - parentX);
-            int yDist = Math.abs(thizY - parentY);
-
-            if (xDist > yDist) {
-                context.drawHorizontalLine(thizX, parentX, thizY, color);
-                context.drawHorizontalLine(thizX, parentX, thizY - 1, color);
-                context.drawVerticalLine(parentX, thizY, parentY, color);
-                context.drawVerticalLine(parentX + 1, thizY, parentY, color);
-            } else {
-                context.drawVerticalLine(parentX, thizY, parentY, color);
-                context.drawVerticalLine(parentX + 1, thizY, parentY, color);
-                context.drawHorizontalLine(thizX, parentX, thizY, color);
-                context.drawHorizontalLine(thizX, parentX, thizY - 1, color);
-            }
+            RenderUtils.renderConnectionLine(
+                    context,
+                    this.parent.getX(),
+                    this.parent.getY(),
+                    this.x,
+                    this.y,
+                    x,
+                    y,
+                    this.progress,
+                    ((AdvancementWidgetAccessor) this.parent).getProgress()
+            );
         }
 
         for (AdvancementWidget advancementWidget : this.children) {
