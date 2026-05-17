@@ -1,11 +1,16 @@
 package me.imbanana.advancementscreenplus.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import me.imbanana.advancementscreenplus.config.ModConfig;
 import me.imbanana.advancementscreenplus.mixin.accessor.AdvancementWidgetAccessor;
 import me.imbanana.advancementscreenplus.util.RenderUtils;
 import net.minecraft.advancement.AdvancementProgress;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.advancement.AdvancementWidget;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -59,5 +64,16 @@ public abstract class AdvancementWidgetMixin {
         for (AdvancementWidget advancementWidget : this.children) {
             advancementWidget.renderLines(context, x, y, border);
         }
+    }
+
+    @WrapOperation(
+            method = "<init>",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/text/Text;copy()Lnet/minecraft/text/MutableText;"
+            )
+    )
+    private MutableText injectDescription(Text instance, Operation<MutableText> original) {
+        return instance.copy().append(Text.literal("\n\n")).append(Text.translatable("advancementscreenplus.screen.description.complete").formatted(Formatting.BLUE));
     }
 }

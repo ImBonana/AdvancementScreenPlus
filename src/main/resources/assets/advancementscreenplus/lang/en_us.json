@@ -15,5 +15,7 @@
     "config.advancementscreenplus.layout.fruchterman_reingold.iterations": "Iterations",
     "config.advancementscreenplus.layout.fruchterman_reingold.repulsion": "Repulsion",
     "config.advancementscreenplus.layout.fruchterman_reingold.center_spacing": "Center Spacing",
-    "config.advancementscreenplus.layout.fruchterman_reingold.spacing": "spacing"
+    "config.advancementscreenplus.layout.fruchterman_reingold.spacing": "spacing",
+
+    "advancementscreenplus.screen.description.complete": "Taken!"
 }
